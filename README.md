@@ -1,4 +1,4 @@
-Aizoban (Depreciated)
+Aizoban
 =======
 
 ![Feature Graphic](https://cloud.githubusercontent.com/assets/9499097/5429148/16e40ee2-83af-11e4-9588-f52f1104b9c4.jpg)
@@ -9,7 +9,7 @@ This Android application allows users to browse a catalogue of mangas from vario
 
 ### APK Download
 
-[**Direct Download**: (Version 1.2.5)](Aizoban/Aizoban_27.apk)
+[**Direct Download**: (Version 1.2.7)](https://github.com/CheviOne/Aizoban/releases/download/v1.2.7/Aizoban_v1.2.7.apk)
 
 ## Source
 
@@ -50,6 +50,10 @@ This library was used to conduct all the application's HTTP requests. It was use
 - **RxJava**: https://github.com/ReactiveX/RxJava
 
 This library was relied upon heavily to create an Observable API to fetch my data. Furthermore, it was used to handle most Activity- or Fragment- bound asynchronous tasks. I really enjoyed creating an Observable API as I had complete control of the execution of the code so that in the Activities and Fragments, data would be fetched asynchronously so the UI thread will not be blocked. Meanwhile, the download manager can transpose the API call to blocking alternatives to maintain a synchronous flow of execution. Finally, the rich API set of RxJava eased composing and refractoring implementations of user cases (i.e. mapping cursors to data, zipping multiple cursors, or handling errors...).
+
+## Credits
+
+- **App Icon by Cookicons**: https://plus.google.com/102718493746376292361/posts
 
 ## License
 

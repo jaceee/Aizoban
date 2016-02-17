@@ -52,7 +52,7 @@
 
     </RelativeLayout>
 
-    <com.makeramen.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="@dimen/baseline_avatar_diameter"
         android:layout_height="@dimen/baseline_avatar_diameter"
         android:layout_gravity="start|center_vertical"
@@ -60,5 +60,12 @@
         android:layout_marginStart="@dimen/baseline_content_unit"
         app:riv_oval="true"
         android:id="@+id/avatarImageView"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/readProgressBar"
+        android:layout_gravity="center_horizontal|bottom" />
 
 </FrameLayout>

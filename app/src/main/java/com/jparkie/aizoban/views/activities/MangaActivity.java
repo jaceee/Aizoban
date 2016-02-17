@@ -1,9 +1,12 @@
 package com.jparkie.aizoban.views.activities;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -207,8 +211,8 @@ public class MangaActivity extends BaseActivity implements MangaView, MangaMappe
             case R.id.action_download:
                 mMangaPresenter.onOptionDownload();
                 return true;
-            case R.id.action_to_top:
-                mMangaPresenter.onOptionToTop();
+            case R.id.action_share:
+                mMangaPresenter.onOptionShare();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -577,6 +581,14 @@ public class MangaActivity extends BaseActivity implements MangaView, MangaMappe
 
         if (mToolbar != null) {
             mToolbar.setBackgroundColor(rgbColor);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                float[] hsv = new float[3];
+                Color.RGBToHSV(Color.red(rgbColor), Color.green(rgbColor), Color.blue(rgbColor), hsv);
+                hsv[2] = hsv[2] - 0.2f;
+                Window window = getWindow();
+                window.setStatusBarColor(Color.HSVToColor(hsv));
+                window.setNavigationBarColor(Color.HSVToColor(hsv));
+            }
         }
         if (mMaskImageView != null) {
             mMaskImageView.setBackgroundColor(rgbColor);

@@ -57,6 +57,7 @@ public class ChapterPresenterOnlineImpl implements ChapterPresenter {
     private boolean mIsRightToLeftDirection;
     private boolean mIsLockOrientation;
     private boolean mIsLockZoom;
+    private boolean mShowPageNumber;
 
     private boolean mInitialized;
     private int mInitialPosition;
@@ -103,9 +104,11 @@ public class ChapterPresenterOnlineImpl implements ChapterPresenter {
         mIsRightToLeftDirection = PreferenceUtils.isRightToLeftDirection();
         mIsLockOrientation = PreferenceUtils.isLockOrientation();
         mIsLockZoom = PreferenceUtils.isLockZoom();
+        mShowPageNumber = PreferenceUtils.hidePageNumber();
 
         mChapterMapper.applyIsLockOrientation(mIsLockOrientation);
         mChapterMapper.applyIsLockZoom(mIsLockZoom);
+        mChapterMapper.setHidePageNumber(mShowPageNumber);
     }
 
     @Override
@@ -221,6 +224,7 @@ public class ChapterPresenterOnlineImpl implements ChapterPresenter {
                 mRecentChapter.setThumbnailUrl(mImageUrls.get(getActualPosition()));
                 mRecentChapter.setDate(System.currentTimeMillis());
                 mRecentChapter.setPageNumber(getActualPosition());
+                mRecentChapter.setMaxPageNumber(mPagesAdapter.getCount());
 
                 QueryManager.putObjectToApplicationDatabase(mRecentChapter);
             }
@@ -289,12 +293,20 @@ public class ChapterPresenterOnlineImpl implements ChapterPresenter {
 
     @Override
     public void onPreviousClick() {
-        previousChapter();
+        if(mIsRightToLeftDirection) {
+            nextChapter();
+        } else {
+            previousChapter();
+        }
     }
 
     @Override
     public void onNextClick() {
-        nextChapter();
+        if(mIsRightToLeftDirection) {
+            previousChapter();
+        } else {
+            nextChapter();
+        }
     }
 
     @Override

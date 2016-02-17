@@ -2,7 +2,7 @@ package com.jparkie.aizoban.controllers.databases;
 
 public class ApplicationContract {
     public static final String DATABASE_NAME = "AizobanApplication.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     private ApplicationContract() {
         throw new AssertionError();
@@ -120,6 +120,7 @@ public class ApplicationContract {
 
         public static final String COLUMN_DATE = "Date";
         public static final String COLUMN_PAGE = "PageNumber";
+        public static final String COLUMN_MAX_PAGE = "MaxPageNumber";
 
         public static final String COLUMN_OFFLINE = "Offline";
 
