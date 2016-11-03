@@ -58,6 +58,7 @@ public class ChapterPresenterOnlineImpl implements ChapterPresenter {
     private boolean mIsLockOrientation;
     private boolean mIsLockZoom;
     private boolean mShowPageNumber;
+    private boolean mIsDoubleTapReloadEnabled;
 
     private boolean mInitialized;
     private int mInitialPosition;
@@ -105,10 +106,12 @@ public class ChapterPresenterOnlineImpl implements ChapterPresenter {
         mIsLockOrientation = PreferenceUtils.isLockOrientation();
         mIsLockZoom = PreferenceUtils.isLockZoom();
         mShowPageNumber = PreferenceUtils.hidePageNumber();
+        mIsDoubleTapReloadEnabled = PreferenceUtils.isDoubleTapReloadEnabled();
 
         mChapterMapper.applyIsLockOrientation(mIsLockOrientation);
         mChapterMapper.applyIsLockZoom(mIsLockZoom);
         mChapterMapper.setHidePageNumber(mShowPageNumber);
+        mChapterMapper.setIsDoubleTapReloadEnabled(mIsDoubleTapReloadEnabled);
     }
 
     @Override

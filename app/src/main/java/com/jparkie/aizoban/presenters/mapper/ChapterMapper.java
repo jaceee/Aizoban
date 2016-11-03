@@ -13,6 +13,8 @@ public interface ChapterMapper {
 
     public void setHidePageNumber(boolean hidePageNumber);
 
+    public void setIsDoubleTapReloadEnabled(boolean isDoubleTapReloadEnabled);
+
     public void applyIsLockOrientation(boolean isLockOrientation);
 
     public void applyIsLockZoom(boolean isLockZoom);

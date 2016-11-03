@@ -26,6 +26,7 @@ public class GestureViewPager extends ViewPager {
 
     private OnChapterBoundariesOutListener mOnChapterBoundariesOutListener;
     private OnChapterSingleTapListener mOnChapterSingleTapListener;
+    private OnChapterDoubleTapListener mOnChapterDoubleTapListener;
 
     public GestureViewPager(Context context) {
         super(context);
@@ -143,6 +144,10 @@ public class GestureViewPager extends ViewPager {
         mOnChapterSingleTapListener = onChapterSingleTapListener;
     }
 
+    public void setOnChapterDoubleTapListener(OnChapterDoubleTapListener onChapterDoubleTapListener) {
+        mOnChapterDoubleTapListener = onChapterDoubleTapListener;
+    }
+
     public interface OnChapterBoundariesOutListener {
         public void onFirstPageOut();
 
@@ -151,6 +156,10 @@ public class GestureViewPager extends ViewPager {
 
     public interface OnChapterSingleTapListener {
         public void onSingleTap();
+    }
+
+    public interface OnChapterDoubleTapListener {
+        public void onDoubleTap();
     }
 
     private class ImageViewGestureListener implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
@@ -164,6 +173,8 @@ public class GestureViewPager extends ViewPager {
                         mGestureImageView.zoomToPoint(mGestureImageView.MAX_SCALE, motionEvent.getX(), motionEvent.getY());
                     }
                 }
+            } else {
+                mOnChapterDoubleTapListener.onDoubleTap();
             }
 
             return true;
