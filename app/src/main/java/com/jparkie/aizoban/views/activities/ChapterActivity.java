@@ -59,6 +59,7 @@ public class ChapterActivity extends BaseActivity implements ChapterView, Chapte
 
     private boolean mSystemUIVisibility;
     private boolean mHidePageNumber;
+    private boolean mIsDoubleTapReloadEnabled;
 
     public static Intent constructOnlineChapterActivityIntent(Context context, RequestWrapper chapterRequest, int position) {
         Intent argumentIntent = new Intent(context, ChapterActivity.class);
@@ -294,6 +295,15 @@ public class ChapterActivity extends BaseActivity implements ChapterView, Chapte
                         enableFullscreen();
                     } else {
                         disableFullscreen();
+                    }
+                }
+            });
+
+            mViewPager.setOnChapterDoubleTapListener(new GestureViewPager.OnChapterDoubleTapListener() {
+                @Override
+                public void onDoubleTap() {
+                    if (mIsDoubleTapReloadEnabled) {
+                        mChapterPresenter.onOptionRefresh();
                     }
                 }
             });
@@ -553,6 +563,11 @@ public class ChapterActivity extends BaseActivity implements ChapterView, Chapte
     @Override
     public void setHidePageNumber(boolean hidePageNumber) {
         mHidePageNumber = hidePageNumber;
+    }
+
+    @Override
+    public void setIsDoubleTapReloadEnabled(boolean isDoubleTapReloadEnabled) {
+        mIsDoubleTapReloadEnabled = isDoubleTapReloadEnabled;
     }
 
     @Override

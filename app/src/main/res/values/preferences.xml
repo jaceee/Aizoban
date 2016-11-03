@@ -95,6 +95,9 @@
     <string name="preference_chapter_order_key">preference_chapter_order_key</string>
     <string name="preference_chapter_order_title">Ascending chapter order</string>
     <string name="preference_chapter_order_summary">Enable ascending chapter order</string>
+    <string name="preference_double_tap_reload_key">preference_double_tap_reload_key</string>
+    <string name="preference_double_tap_reload_title">Double-tap to refresh</string>
+    <string name="preference_double_tap_reload_summary">Double-tap to refresh/retry when the image failed</string>
 
     <!-- Download: -->
     <string name="preference_download_wifi_key">preference_download_wifi</string>

@@ -67,6 +67,11 @@
             android:title="@string/preference_chapter_order_title"
             android:summary="@string/preference_chapter_order_summary"
             android:defaultValue="false"/>
+        <CheckBoxPreference
+            android:key="@string/preference_double_tap_reload_key"
+            android:title="@string/preference_double_tap_reload_title"
+            android:summary="@string/preference_double_tap_reload_summary"
+            android:defaultValue="false"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_download_key"
